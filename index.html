@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ristorante Con Fusion</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="css/mystyles.css">
 </head>
@@ -25,7 +25,6 @@
                 </button>
                 <a class="navbar-brand" href="#"><img src="img/logo.png" height=30 width=41></a>
             </div>
-
 
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -47,7 +46,7 @@
                     <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="modal" data-target="#loginModal">
+                    <li><a id="loginLink">
                         <span class="glyphicon glyphicon-log-in"> Login</span></a>
                     </li>
                 </ul>
@@ -171,7 +170,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:40px;"></p>
-                    <a href="#reserve-table" class="btn btn-warning btn-block" data-target="#reserve-table-modal" data-toggle="modal">Reserve Table</a>
+                    <a href="#reserve-table" class="btn btn-warning btn-block" id="reserveTableBtn">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -399,10 +398,8 @@
         </div>
     </footer>
 <script
-  src="https://code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
     $('#mycarousel').carousel({interval:2000});
@@ -412,6 +409,18 @@ $(document).ready(function(){
 
     $('#carousel-play').click(function(){
         $('#mycarousel').carousel('cycle');
+    });
+
+    $('#loginLink').click(function() {
+        $('#loginModal').modal({
+            show:true
+        });
+    });
+
+    $('#reserveTableBtn').click(function() {
+        $('#reserve-table-modal').modal({
+            show:true
+        });
     });
 });
 </script>
